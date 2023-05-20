@@ -55,5 +55,17 @@ func main(){
 	case i<=20: fmt.Println("Less than 20")
 	default: fmt.Println("meh")
 	}
+
+	var j interface{} = 1
+
+	switch j.(type){
+	case int: fmt.Println("j is an int")
+			  break
+			  fmt.Println("This won't execute")
+	case float64: fmt.Println("j is a float64")
+	case string: fmt.Println("j is a string")
+	default: fmt.Println("none")
+	}
+
 }
 
