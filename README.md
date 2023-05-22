@@ -23,7 +23,8 @@ Naming conventions:
 
 ALL DECLARED VARIABLES MUST BE USED, OTHERWISE WILL THROW AND ERROR
 
-/*** TYPE CONVERSION ***/
+/*** TYPE CONVERSION ***/    
+
 int -> float32 we must do it explicitly
 
 no implicit type conversion in Go
@@ -32,7 +33,7 @@ destinationType(value)
 use strconv for string conversions
 
 
-/*** ALL ABOUT VARIABLES ***/
+/*** ALL ABOUT VARIABLES ***/     
 1) Variable declaration
 2) We cannot redeclare variables, but can shadow them
 3) All declared variables must be used
@@ -41,31 +42,29 @@ use strconv for string conversions
 
 
 
-/*** PRIMITIVE TYPES IN GO ***/
+/*** PRIMITIVE TYPES IN GO ***/    
 1) Boolean type
 
     true and false
     default value is false
 
-2) Numeric type
+2) Numeric type     
     a) int
-
-        Signed integers: int8, int16, int 32
-        Unsigned integers: uint8, uint16, uint32
-
+        Signed integers: int8, int16, int 32   
+        Unsigned integers: uint8, uint16, uint32      
         Arithmetic operations:
             cannot add two different integers of different types 
 
     b) floating point
-
         follow IEEE754 format
         Initializer syntax initalizes it to float64 and arithmetic operations will become complex
-    c) complex
+    
+    c) complex  
         complex64 and complex128
         basic 4 arithmetic operations
-3) Text type
-    a) string
 
+3) Text type   
+    a) string   
         any utf8 character
         strings are aliases for bytes, so whenever we access any character using [] notation, we must convert it to string
         strings are immutable
@@ -76,7 +75,7 @@ use strconv for string conversions
 
 
 
-/*** CONSTANTS ***/
+/*** CONSTANTS ***/    
 
 They are replaced by the compiler at compile time
 can be any variable type
@@ -96,36 +95,35 @@ supports implicit conversion but only with untyped consts
     a) Arithmetic, bitwise and bitshifting operations are allowed
 
 
-/*** ARRAYS ***/
+/*** MAPS ***/     
+1) value can be anything   
+2) keys must be testable by equality (slices, maps, etc are not testable)   
+3) map is dynamic   
+4) return order of a map is not fixed    
+5) they are passed by reference  
 
-/*** MAPS ***/
-value can be anything
-keys must be testable by equality (slices, maps, etc are not testable)
-map is dynamic
-return order of a map is not fixed
-they are passed by reference
-
-/*** STRUCTS ***/
-naming convention is same as variables
-they are passed by value
+/*** STRUCTS ***/   
+1) naming convention is same as variables   
+2) they are passed by value   
 
 Go does not provide inheritance, but provides embedded structs by means of composition
 
 
-/*** CONDITIONAL STATEMENTS ***/
+/*** CONDITIONAL STATEMENTS ***/      
 
 Always use curly braces even for single line
 For the Initializer syntax, the pop variable is only available within the if block
-Possible operations:
- >
- <
- ==
- <=
- >=
- !=
+Possible operations:    
+ 1) >   
+ 2) <   
+ 3) ==    
+ 4) <=    
+ 5) >=    
+ 6) !=     
+
 Logical operators:
- ||
- &&
+ 1) ||    
+ 2) &&    
 
 
 Short circuiting - if any or test passes, the subsequent tests are not executed.
@@ -135,34 +133,32 @@ No fall through property in switch statements, but we can group multiple cases t
 The fallthrough keyword will execute the following case regardless of whether it is true or not.
 
 
-/*** LOOPS ***/
-
 
 /*** CONTROL FLOW ***/
 
-defer - executes a statement after a function has finished executing all statements other than return statement. All defer statements are called in LIFO order. Allows to associate closing and opening of resources right next to each other, while allowing resources to be utilized. It takes in the argument at the time it is called, rather than later on in the function.
+1) defer - executes a statement after a function has finished executing all statements other than return statement. All defer statements are called in LIFO order. Allows to associate closing and opening of resources right next to each other, while allowing resources to be utilized. It takes in the argument at the time it is called, rather than later on in the function.
 
-panic - like throwing an exception. It occurs when program does not know how to proceed. Panics stop the termination of the program. Panics will be executed after the execution of any defer statements. 
+2) panic - like throwing an exception. It occurs when program does not know how to proceed. Panics stop the termination of the program. Panics will be executed after the execution of any defer statements. 
 
-recover - used to recover from a panic.
-
-
-/*** POINTERS ***/
-
-& -> 'address of' operator
-* -> dereferencing operator
-
-No pointer arithmetic allowed.
-"unsafe" package is used for such operations.
-
-The zero value of a pointer is <nil>
-
-Complex types (structs) are automatically dereferenced for us.
-We wrap *ms in parantheses to access fields as the * has a lower precedence than the . , so to prevent that from evaluating into *(ms.foo), we do (*ms).foo .
-Maps and slices are initialized with internal maps, so copying them will point to the same data.
+3) recover - used to recover from a panic.
 
 
-/*** FUNCTIONS IN GO ***/
+/*** POINTERS ***/   
+
+& -> 'address of' operator   
+* -> dereferencing operator   
+
+No pointer arithmetic allowed.   
+"unsafe" package is used for such operations.   
+
+The zero value of a pointer is <nil>   
+
+Complex types (structs) are automatically dereferenced for us.   
+We wrap *ms in parantheses to access fields as the * has a lower precedence than the . , so to prevent that from evaluating into *(ms.foo), we do (*ms).foo .   
+Maps and slices are initialized with internal maps, so copying them will point to the same data.   
+
+
+/*** FUNCTIONS IN GO ***/   
 
 pascal/camel case
 visibility rules are same as variable
