@@ -5,7 +5,7 @@ A repository containing of all the codes I referred to and wrote during my learn
     
     
     
-#The following are the pointers I made for myself to refer to during this journey of mine.
+#The following are the pointers I made for myself to refer to during this journey of mine.   
 /*** VARIABLES ***/
 
 -> Lower case variables are scoped to the package
